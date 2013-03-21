@@ -26,14 +26,14 @@ apt-get --yes dist-upgrade
 echo "================================================================================"
 echo "Installing applications..."
 echo "================================================================================"
-apt-get --yes install fail2ban ufw vim tmux nginx lftp git python-virtualenv unattended-upgrades
+apt-get --yes install fail2ban ufw vim tmux nginx lftp git python-virtualenv unattended-upgrades htop
 apt-get --yes build-dep python-imaging
 
 
 echo "================================================================================"
 echo "Setup user..."
 echo "================================================================================"
-useradd isaac -m -p `mkpasswd changeme`
+useradd isaac -m -s /bin/bash -p `mkpasswd changeme`
 cd /home/isaac
 mkdir code
 cd code
