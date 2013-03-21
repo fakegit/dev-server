@@ -25,6 +25,7 @@ Actual installed apps:
  * lftp
  * git
  * virtualenv
+ * htop
 
 Build deps for virtualenv apps:
 
@@ -59,3 +60,5 @@ the dot files to be pulled into ~/code/isaac/dot-files
  * Basic conf to point all traffic to 8000
 
 ### Step 7: Enable auto-updating of everything
+
+### Step 8: Setup hostname
