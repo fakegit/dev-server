@@ -100,13 +100,6 @@ APT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/10periodic
 
 
 echo "================================================================================"
-echo "Set hostname..."
-echo "================================================================================"
-echo "nebula" > /etc/hostname
-echo "127.0.0.1 nebula" >> /etc/hosts
-
-
-echo "================================================================================"
 echo "DONE - Be sure you switch to the new user 'isaac' using the password 'changeme'"
 echo "and set a strong password. The quickest way is to run the following immediately:"
 echo "    passwd isaac"
