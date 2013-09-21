@@ -26,7 +26,7 @@ apt-get --yes dist-upgrade
 echo "================================================================================"
 echo "Installing applications..."
 echo "================================================================================"
-apt-get --yes install fail2ban ufw vim tmux nginx lftp git python-virtualenv unattended-upgrades htop
+apt-get --yes install fail2ban ufw vim tmux nginx lftp git python-virtualenv unattended-upgrades htop linux-image-extra-`uname -r`
 apt-get --yes build-dep python-imaging
 
 
@@ -41,6 +41,7 @@ mkdir isaac
 cd isaac
 git clone https://github.com/overshard/dot-files.git
 cd dot-files
+git submodules update --init
 chmod +x bootstrap.sh
 ./bootstrap.sh
 cd /home/isaac
