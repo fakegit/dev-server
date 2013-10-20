@@ -32,6 +32,6 @@ mkdir --parents /home/isaac/code
 cd /home/isaac/code
 git clone https://github.com/overshard/nebula.bythewood.me
 cd nebula.bythewood.me
-chmod +x setup.py
-./setup.py
+chmod +x setup.sh
+./setup.sh
 
