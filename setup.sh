@@ -51,8 +51,8 @@ cd /home/isaac/code
 git clone https://github.com/overshard/dot-files
 cd dot-files
 git submodules update --init
-chmod +x bootstrap.sh
-./bootstrap.sh
+chmod +x setup.sh
+./setup.sh
 mkdir --parents /home/isaac/.ssh
 cp /home/isaac/code/nebula.bythewood.me/home/isaac/ssh/authorized_keys \
    /home/isaac/.ssh/authorized_keys
