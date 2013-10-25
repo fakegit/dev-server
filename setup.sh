@@ -86,7 +86,8 @@ echo "Enable auto-updates to everything..."
 echo "========================================================================="
 cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/50unattended-upgrades \
    /etc/apt/apt.conf.d/50unattended-upgrades
-
+cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/20auto-upgrades \
+   /etc/apt/apt.conf.d/20auto-upgrades
 
 echo "========================================================================="
 echo "DONE -- Be sure you set a password for 'isaac' before restarting, you can"
