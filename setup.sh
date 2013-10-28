@@ -35,6 +35,17 @@ apt-get --yes build-dep python-imaging python-psycopg2
 
 
 echo "========================================================================="
+echo "Enable auto-updates to everything..."
+echo "========================================================================="
+cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/10periodic \
+   /etc/apt/apt.conf.d/10periodic
+cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/20auto-upgrades \
+   /etc/apt/apt.conf.d/20auto-upgrades
+cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/50unattended-upgrades \
+   /etc/apt/apt.conf.d/50unattended-upgrades
+
+
+echo "========================================================================="
 echo "Enable firewall..."
 echo "========================================================================="
 ufw allow 22/tcp
@@ -80,16 +91,6 @@ echo "========================================================================="
 cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/default \
    /etc/nginx/sites-available/default
 
-
-echo "========================================================================="
-echo "Enable auto-updates to everything..."
-echo "========================================================================="
-cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/10periodic \
-   /etc/apt/apt.conf.d/10periodic
-cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/20auto-upgrades \
-   /etc/apt/apt.conf.d/20auto-upgrades
-cp /home/isaac/code/nebula.bythewood.me/etc/apt/apt.conf.d/50unattended-upgrades \
-   /etc/apt/apt.conf.d/50unattended-upgrades
 
 echo "========================================================================="
 echo "DONE -- Be sure you set a password for 'isaac' before restarting, you can"
