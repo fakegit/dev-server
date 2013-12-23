@@ -53,9 +53,9 @@ tar zxvf tarsnap-autoconf-1.0.35.tgz
 cd tarsnap-autoconf-1.0.35
 ./configure
 make all install clean
-cp /home/isaac/code/docker.bythewood.me/usr/local/bin/tarsnap-manual-backup \
+cp /home/isaac/code/nebula.bythewood.me/usr/local/bin/tarsnap-manual-backup \
       /usr/local/bin/tarsnap-manual-backup
-cp /home/isaac/code/docker.bythewood.me/usr/local/bin/tarsnap-manual-restore \
+cp /home/isaac/code/nebula.bythewood.me/usr/local/bin/tarsnap-manual-restore \
       /usr/local/bin/tarsnap-manual-restore
 chmod +x /usr/local/bin/tarsnap-manual-backup
 chmod +x /usr/local/bin/tarsnap-manual-restore
@@ -77,7 +77,7 @@ echo "Enable firewall..."
 echo "========================================================================="
 ufw allow 22/tcp
 ufw allow 80/tcp
-cp /home/isaac/code/docker.bythewood.me/etc/default/ufw /etc/default/ufw
+cp /home/isaac/code/nebula.bythewood.me/etc/default/ufw /etc/default/ufw
 ufw --force enable
 
 
@@ -132,11 +132,11 @@ docker run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
 echo "========================================================================="
 echo "Setup nginx..."
 echo "========================================================================="
-cp /home/isaac/code/docker.bythewood.me/etc/nginx/nginx.conf \
+cp /home/isaac/code/nebula.bythewood.me/etc/nginx/nginx.conf \
       /etc/nginx/nginx.conf
 cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/default \
    /etc/nginx/sites-available/default
-cp /home/isaac/code/docker.bythewood.me/etc/nginx/sites-available/pinry \
+cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/pinry \
       /etc/nginx/sites-available/pinry
 ln -s ../sites-available/pinry
 
