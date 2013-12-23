@@ -130,6 +130,16 @@ docker run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
 
 
 echo "========================================================================="
+echo "Setup tarsnap backups..."
+echo "========================================================================="
+cp /home/isaac/code/docker.bythewood.me/usr/local/etc/tarsnap.conf \
+      /usr/local/etc/tarsnap.conf
+cp /home/isaac/code/docker.bythewood.me/etc/cron.daily/tarsnap-daily-backup \
+      /etc/cron.daily/tarsnap-daily-backup
+chmod +x /etc/cron.daily/tarsnap-daily-backup
+
+
+echo "========================================================================="
 echo "Setup nginx..."
 echo "========================================================================="
 cp /home/isaac/code/nebula.bythewood.me/etc/nginx/nginx.conf \
