@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Test if root/sudo or this won't work
+if [ "$(whoami)" != "root" ];
+then
+    echo "You don't have sufficient privileges to run this script."
+    exit 1
+fi
+
+# Stop containers to guarantee no corrupt files from read/write interuption
+echo "Stopping containers to guarantee no corrupt data."
+CONTAINERS=$(docker ps -q)
+docker stop `echo $CONTAINERS`
+
+# Backup mnt, delete old one if it exists
+LATEST=$(tarsnap --list-archives | grep docker-mnt-manual)
+if [ "$LATEST" = "docker-mnt-manual" ]
+then
+    echo "Deleting old manual backup."
+    /usr/local/bin/tarsnap -d -f docker-mnt-manual
+fi
+echo "Creating new manual backup."
+/usr/local/bin/tarsnap -c -f docker-mnt-manual /mnt
+
+# Restart containers
+echo "Starting the containers that were shutdown."
+docker start `echo $CONTAINERS`
+echo "Done."
+
