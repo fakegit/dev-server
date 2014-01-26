@@ -77,6 +77,7 @@ echo "Enable firewall..."
 echo "========================================================================="
 ufw allow 22/tcp
 ufw allow 80/tcp
+ufw allow 9987/udp
 cp /home/isaac/code/nebula.bythewood.me/etc/default/ufw /etc/default/ufw
 ufw --force enable
 
@@ -124,9 +125,20 @@ mkdir -p /mnt/pinry
 
 
 echo "========================================================================="
+echo "Setup teamspeak docker container..."
+echo "========================================================================="
+cd /home/isaac/code
+git clone https://github.com/overshard/docker-teamspeak
+cd docker-teamspeak
+docker build -t overshard/teamspeak .
+mkdir -p /mnt/teamspeak
+
+
+echo "========================================================================="
 echo "Start all docker containers..."
 echo "========================================================================="
 docker run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
+docker run -d=true -p=9987:9987/udp -v=/mnt/teamspeak:/data overshard/teamspeak /start
 
 
 echo "========================================================================="
