@@ -7,6 +7,10 @@ then
     exit 1
 fi
 
+# Assure that the backups are intact and working on this server
+echo "Making sure the backups are intact and working on this server."
+tarsnap --fsck
+
 # Get list of running containers and stop them
 echo "Stopping containers to prevent issues with write/read lock files."
 CONTAINERS=$(docker ps -q)
