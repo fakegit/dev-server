@@ -162,6 +162,7 @@ cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/default \
    /etc/nginx/sites-available/default
 cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/pinry \
       /etc/nginx/sites-available/pinry
+cd /etc/nginx/sites-enabled
 ln -s ../sites-available/pinry
 
 
