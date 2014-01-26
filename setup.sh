@@ -30,7 +30,8 @@ echo "Installing applications..."
 echo "========================================================================="
 apt-get --yes install fail2ban ufw vim tmux nginx lftp python-virtualenv git \
                       unattended-upgrades htop linux-image-extra-`uname -r` \
-                      pwgen build-essential libssl-dev zlib1g-dev e2fslibs-dev
+                      pwgen build-essential libssl-dev zlib1g-dev e2fslibs-dev \
+                      glance
 apt-get --yes build-dep python-imaging python-psycopg2
 mkdir -p /root/code
 cd /root/code
