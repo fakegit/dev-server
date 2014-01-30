@@ -100,6 +100,10 @@ cp /home/isaac/code/nebula.bythewood.me/home/isaac/ssh/authorized_keys \
    /home/isaac/.ssh/authorized_keys
 chmod 700 /home/isaac/.ssh
 chmod 600 /home/isaac/.ssh/authorized_keys
+mkdir --parents /home/isaac/.tarsnap
+touch /home/isaac/.tarsnap/tarsnap.key
+chmod 700 /home/isaac/.tarsnap
+chmod 600 /home/isaac/.tarsnap/tarsnap.key
 chown --recursive isaac:isaac /home/isaac
 usermod --append --groups sudo isaac
 
@@ -164,6 +168,12 @@ cp /home/isaac/code/nebula.bythewood.me/etc/nginx/sites-available/pinry \
       /etc/nginx/sites-available/pinry
 cd /etc/nginx/sites-enabled
 ln -s ../sites-available/pinry
+
+
+echo "========================================================================="
+echo "Set hostname..."
+echo "========================================================================="
+cp /home/isaac/code/nebula.bythewood.me/etc/hostname /etc/hostname
 
 
 echo "========================================================================="
