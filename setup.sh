@@ -30,9 +30,8 @@ echo "Installing applications..."
 echo "========================================================================="
 apt-get --yes install fail2ban ufw vim tmux nginx lftp python-virtualenv git \
                       unattended-upgrades htop pwgen build-essential \
-                      libssl-dev zlib1g-dev e2fslibs-dev weechat npm
+                      libssl-dev zlib1g-dev e2fslibs-dev coffeescript node-less
 apt-get --yes build-dep python-imaging python-psycopg2 python-lxml
-npm install coffee-script less
 mkdir -p /root/code
 cd /root/code
 
