@@ -45,5 +45,5 @@ then
     tarsnap -d -f docker-mnt-manual
 fi
 echo "Starting back up stopped containers."
-docker start `echo $CONTAINERS`
+docker start $CONTAINERS
 echo "Done."

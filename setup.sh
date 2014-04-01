@@ -80,6 +80,7 @@ ufw allow 80/tcp
 ufw allow 9987/udp
 ufw allow 10011/tcp
 ufw allow 30033/tcp
+ufw allow 25565/tcp
 cp /home/isaac/code/nebula.bythewood.me/etc/default/ufw /etc/default/ufw
 ufw --force enable
 
@@ -141,10 +142,21 @@ mkdir -p /mnt/teamspeak
 
 
 echo "========================================================================="
+echo "Setup minecraft docker container..."
+echo "========================================================================="
+cd /home/isaac/code
+git clone https://github.com/overshard/docker-minecraft
+cd docker-minecraft
+docker build -t overshard/minecraft .
+mkdir -p /mnt/minecraft
+
+
+echo "========================================================================="
 echo "Start all docker containers..."
 echo "========================================================================="
 docker run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
 docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
+docker run -d=true -p=25565:25565 -v=/mnt/minecraft:/data overshard/minecraft /start
 
 
 echo "========================================================================="
