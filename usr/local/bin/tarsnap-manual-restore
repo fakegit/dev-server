@@ -14,7 +14,7 @@ tarsnap --fsck
 # Get list of running containers and stop them
 echo "Stopping containers to prevent issues with write/read lock files."
 CONTAINERS=$(docker ps -q)
-docker stop `echo $CONTAINERS`
+docker stop $CONTAINERS
 
 # Backup and delete the mnt folder we are trying to restore
 echo "Backup old mnt data to '/home/isaac/backups/' and delete '/mnt'."
