@@ -9,8 +9,8 @@ fi
 
 # Stop containers to guarantee no corrupt files from read/write interuption
 echo "Stopping containers to guarantee no corrupt data."
-CONTAINERS=$(docker ps -q)
-docker stop $CONTAINERS
+CONTAINERS=$(docker.io ps -q)
+docker.io stop $CONTAINERS
 
 # Backup mnt, delete old one if it exists
 LATEST=$(tarsnap --list-archives | grep docker-mnt-manual)
@@ -24,6 +24,6 @@ echo "Creating new manual backup."
 
 # Restart containers
 echo "Starting the containers that were shutdown."
-docker start $CONTAINERS
+docker.io start $CONTAINERS
 echo "Done."
 
