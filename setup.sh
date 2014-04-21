@@ -146,9 +146,9 @@ mkdir -p /mnt/minecraft
 echo "========================================================================="
 echo "Start all docker containers..."
 echo "========================================================================="
-docker run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
-docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
-docker run -d=true -p=25565:25565 -v=/mnt/minecraft:/data overshard/minecraft /start
+docker.io run -d=true -p=10000:80 -v=/mnt/pinry:/data pinry/pinry /start
+docker.io run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
+docker.io run -d=true -p=25565:25565 -v=/mnt/minecraft:/data overshard/minecraft /start
 
 
 echo "========================================================================="
