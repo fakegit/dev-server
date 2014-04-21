@@ -30,19 +30,11 @@ echo "Installing applications..."
 echo "========================================================================="
 apt-get --yes install fail2ban ufw vim tmux nginx lftp python-virtualenv git \
                       unattended-upgrades htop pwgen build-essential \
-                      libssl-dev zlib1g-dev e2fslibs-dev coffeescript node-less
+                      libssl-dev zlib1g-dev e2fslibs-dev coffeescript node-less \
+                      docker.io
 apt-get --yes build-dep python-imaging python-psycopg2 python-lxml
 mkdir -p /root/code
 cd /root/code
-
-
-echo "========================================================================="
-echo "Installing docker..."
-echo "========================================================================="
-sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
-sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-apt-get update
-apt-get --yes install lxc-docker
 
 
 echo "========================================================================="
@@ -127,7 +119,7 @@ echo "========================================================================="
 cd /home/isaac/code
 git clone https://github.com/pinry/docker-pinry
 cd docker-pinry
-docker build -t pinry/pinry .
+docker.io build -t pinry/pinry .
 mkdir -p /mnt/pinry
 
 
@@ -137,7 +129,7 @@ echo "========================================================================="
 cd /home/isaac/code
 git clone https://github.com/overshard/docker-teamspeak
 cd docker-teamspeak
-docker build -t overshard/teamspeak .
+docker.io build -t overshard/teamspeak .
 mkdir -p /mnt/teamspeak
 
 
@@ -147,7 +139,7 @@ echo "========================================================================="
 cd /home/isaac/code
 git clone https://github.com/overshard/docker-minecraft
 cd docker-minecraft
-docker build -t overshard/minecraft .
+docker.io build -t overshard/minecraft .
 mkdir -p /mnt/minecraft
 
 
