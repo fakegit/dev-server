@@ -1,6 +1,0 @@
-#!/bin/sh
-
-echo "`/bin/date +%F` tarsnap : Starting tarsnap daily backup of /mnt." >> /var/log/tarsnap-daily-backup.log
-/usr/local/bin/tarsnap -c -f docker-mnt-`/bin/date +%F` /mnt
-echo "`/bin/date +%F` tarsnap : Ending tarsnap daily backup of /mnt." >> /var/log/tarsnap-daily-backup.log
-
