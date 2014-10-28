@@ -116,5 +116,7 @@ echo "========================================================================="
 echo "DONE -- Be sure you set a password for 'isaac' before restarting, you can"
 echo "no longer access root and the password is randomized by default:"
 echo "    passwd isaac"
+echo ""
+echo "Also stop docker containers and restore backups if you want..."
 echo "========================================================================="
 
