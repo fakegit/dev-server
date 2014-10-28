@@ -93,7 +93,7 @@ mkdir -p /mnt/teamspeak
 echo "========================================================================="
 echo "Start all docker containers..."
 echo "========================================================================="
-docker.io run -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
+docker.io run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
 
 
 echo "========================================================================="
