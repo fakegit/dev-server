@@ -30,7 +30,7 @@ echo "Installing applications..."
 echo "========================================================================="
 apt-get --yes install fail2ban ufw vim tmux nginx python-virtualenv git htop \
                       unattended-upgrades pwgen build-essential docker.io \
-                      postgresql imagemagick libav-tools
+                      postgresql imagemagick libav-tools mosh
 apt-get --yes build-dep python-imaging python-psycopg2 python-lxml
 mkdir -p /root/code
 cd /root/code
@@ -44,6 +44,7 @@ ufw allow 80/tcp
 ufw allow 9987/udp
 ufw allow 10011/tcp
 ufw allow 30033/tcp
+ufw allow 60000:61000/udp
 cp /home/isaac/code/nebula.bythewood.me/etc/default/ufw /etc/default/ufw
 ufw --force enable
 
