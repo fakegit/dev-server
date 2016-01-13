@@ -30,7 +30,8 @@ echo "Installing applications..."
 echo "========================================================================="
 apt-get --yes install fail2ban ufw vim tmux nginx python-virtualenv git htop \
                       unattended-upgrades pwgen build-essential docker.io \
-                      postgresql imagemagick libav-tools mosh
+                      postgresql imagemagick libav-tools mosh iftop openvpn \
+                      easy-rsa
 apt-get --yes build-dep python-imaging python-psycopg2 python-lxml
 mkdir -p /root/code
 cd /root/code
