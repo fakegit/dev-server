@@ -1,5 +1,5 @@
-nebula.bythewood.me
-===================
+dev-server
+==========
 
 Script to get my development server up and running. This probably shouldn't be
 used by anyone else without heavy modification.
