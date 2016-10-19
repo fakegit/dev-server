@@ -36,6 +36,16 @@ sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/
 
 
 echo "========================================================================="
+echo "Setup swapfile..."
+echo "========================================================================="
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+
+echo "========================================================================="
 echo "Setup nginx for development..."
 echo "========================================================================="
 sudo cat <<-FILE > /etc/nginx/sites-available/default
