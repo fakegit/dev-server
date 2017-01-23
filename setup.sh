@@ -8,18 +8,26 @@ sudo apt --yes dist-upgrade
 echo "========================================================================="
 echo "Installing applications..."
 echo "========================================================================="
-sudo apt --yes install fail2ban ufw vim tmux nginx python-virtualenv git htop \
-						build-essential postgresql imagemagick libav-tools mosh \
-						redis-server iftop
+sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+curl -L https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-sudo apt-get --yes build-dep python-imaging python-psycopg2 python-lxml
+sudo echo "deb https://cli-assets.heroku.com/branches/stable/apt ./" > /etc/apt/sources.list.d/heroku.list
+curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+
+sudo apt update
+
+sudo apt --yes install fail2ban ufw vim tmux nginx python-virtualenv git htop \
+						build-essential postgresql-9.6 imagemagick libav-tools \
+						redis-server iftop heroku
+
+sudo apt-get --yes build-dep pillow psycopg2 lxml
 
 
 echo "========================================================================="
 echo "Enable firewall..."
 echo "========================================================================="
 sudo ufw allow 22/tcp
-sudo ufw allow 80/tcp
+sudo ufw allow 8000/tcp
 sudo ufw --force enable
 
 
@@ -43,26 +51,6 @@ sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-
-
-echo "========================================================================="
-echo "Setup nginx for development..."
-echo "========================================================================="
-sudo cat <<-FILE > /etc/nginx/sites-available/default
-	server {
-		listen 80 default_server;
-		listen [::]:80 default_server;
-
-		server_name _;
-
-		location / {
-			proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-			proxy_set_header Host $http_host;
-			proxy_redirect off;
-			proxy_pass http://localhost:8000;
-		}
-	}
-FILE
 
 
 echo "========================================================================="
