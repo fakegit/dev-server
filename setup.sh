@@ -16,11 +16,11 @@ curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
 
 sudo apt update
 
-sudo apt --yes install fail2ban ufw vim tmux nginx python-virtualenv git htop \
+sudo apt --yes install fail2ban ufw vim tmux python-virtualenv git htop \
 						build-essential postgresql-9.6 imagemagick libav-tools \
 						redis-server iftop heroku
 
-sudo apt-get --yes build-dep pillow psycopg2 lxml
+sudo apt-get --yes build-dep pillow psycopg2 lxml fabric
 
 
 echo "========================================================================="
